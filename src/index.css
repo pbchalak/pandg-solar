@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Manrope", sans-serif;
+
+  --color-solar-blue: #0067B1;
+  --color-solar-navy: #004A80;
+  --color-solar-gold: #FFC20E;
+  --color-solar-gold-light: #FFD24D;
+  --color-solar-grey: #F8F9FA;
+  --color-solar-grey-dark: #E9ECEF;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-solar-navy font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight text-solar-blue;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .btn-primary {
+    @apply bg-solar-gold hover:bg-solar-gold-light text-solar-navy font-bold px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 flex items-center justify-center gap-2;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-solar-blue text-solar-blue hover:bg-solar-blue/5 font-bold px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-solar-grey;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-solar-navy/20 rounded-full hover:bg-solar-navy/40 transition-colors;
+}
+
+/* Animations */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
